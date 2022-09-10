@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { CreateNote } from "CreateNote";
 import { Note } from "Note";
-import { useStateStorage } from "useStateStorage";
+import { useStateStorage } from "./useStateStorage";
 
 const generate = () => `modal__${Date.now() + Math.random()}`;
 
