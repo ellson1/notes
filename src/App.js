@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledText = styled.div`
-  color: pink;
+  color: lightblue;
 `;
 
 export const App = () => {
