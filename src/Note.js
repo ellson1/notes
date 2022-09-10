@@ -1,16 +1,17 @@
 import styled from "styled-components";
+import { prop } from "styled-tools";
 import TextareaAutosize from "react-textarea-autosize";
-
-const colors = ["#ffec97", "#f9cfe3", "#fcddd1", "#e3d5ea", "#e5eb9f", "#bae3eb"];
+import { ReactComponent as DeleteIcon } from "trash-can.svg";
 
 const StyledNote = styled.div`
-  background: ${colors[0]};
+  background: ${prop("color")};
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: 0px 6px 10px 6px #0005;
+  position: relative;
 
   input {
     background: inherit;
@@ -27,6 +28,7 @@ const StyledNote = styled.div`
       background: #fff5;
     }
   }
+
   textarea {
     background: inherit;
     width: 100%;
@@ -41,13 +43,22 @@ const StyledNote = styled.div`
       background: #fff5;
     }
   }
+
+  svg {
+    position: absolute;
+    right: 6px;
+    bottom: 12px;
+    width: 24px;
+    height: 24px;
+  }
 `;
 
-export const Note = () => {
+export const Note = ({ color, note, title, onUpdateNote, deleteNote }) => {
   return (
-    <StyledNote>
-      <input placeholder="Write your title here" />
-      <TextareaAutosize minRows={7} placeholder="Write your note here" />
+    <StyledNote color={color}>
+      <input placeholder="Write your title here" onChange={onUpdateNote("title")} value={title} />
+      <TextareaAutosize minRows={7} placeholder="Write your note here" onChange={onUpdateNote("note")} value={note} />
+      <DeleteIcon onClick={deleteNote} />
     </StyledNote>
   );
 };

@@ -17,9 +17,9 @@ const StyledCreateNote = styled.div`
   }
 `;
 
-export const CreateNote = () => {
+export const CreateNote = ({ createNote }) => {
   return (
-    <StyledCreateNote>
+    <StyledCreateNote onClick={createNote}>
       <AddIcon />
     </StyledCreateNote>
   );
