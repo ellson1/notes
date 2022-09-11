@@ -33,7 +33,7 @@ export const App = () => {
   };
 
   const handleUpdateNote = (id) => (field) => (event) => {
-    setNotes((notes) => notes.map((note) => (note.id === id ? { ...note, [field]: event.target.value.trim() } : note)));
+    setNotes((notes) => notes.map((note) => (note.id === id ? { ...note, [field]: event.target.value } : note)));
   };
 
   const deleteNote = (id) => () => {
